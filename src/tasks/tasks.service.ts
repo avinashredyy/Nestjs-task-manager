@@ -9,4 +9,15 @@ export class TasksService {
     getAllTasks(): Task[] {
         return this.tasks;
     }
+
+    createTask(title: string, description: string): Task {
+        const task: Task = {
+            id: uuid(),
+            title,
+            description,
+            status: TaskStatus.OPEN
+        }
+        this.tasks.push(task);
+        return task;
+    }
 }
